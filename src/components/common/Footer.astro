@@ -48,10 +48,11 @@ const currentYear = new Date().getFullYear();
 
       <!-- Contact / Follow -->
       <div>
-        <h3 class="font-mono text-xs font-semibold text-white uppercase tracking-widest mb-4">Connect</h3>
+        <h3 class="font-mono text-xs font-semibold text-white uppercase tracking-widest mb-4">Connect & Legal</h3>
         <ul class="space-y-2.5 text-sm text-yorik-muted">
           <li><a href="/contact" class="hover:text-yorik-purple transition-colors">Follow the Journey</a></li>
           <li><a href="/contact" class="hover:text-yorik-purple transition-colors">Get in Touch</a></li>
+          <li><a href="/privacy" class="hover:text-yorik-purple transition-colors">Privacy Policy</a></li>
           <li><a href="mailto:yorik.labs@gmail.com" class="hover:text-yorik-purple transition-colors font-mono text-xs text-yorik-cyan">yorik.labs@gmail.com</a></li>
         </ul>
       </div>
@@ -60,7 +61,11 @@ const currentYear = new Date().getFullYear();
 
     <!-- Copyright & Disclaimer -->
     <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-yorik-subtle">
-      <p>© {currentYear} Yorik Labs. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <p>© {currentYear} Yorik Labs. All rights reserved.</p>
+        <span>•</span>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+      </div>
       <p class="text-center md:text-right text-yorik-subtle max-w-md">
         The goal isn't to build one app for everyone. It's to build the right app for everyone.
       </p>

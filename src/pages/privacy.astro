@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/common/SectionHeader.astro';
+
+const effectiveDate = "August 08, 2026";
+const contactEmail = "yorik.labs@gmail.com";
+const websiteUrl = "https://yoriklabs.netlify.app";
+
+const sections = [
+  { id: "introduction", title: "1. Introduction" },
+  { id: "information-collected", title: "2. Information We Collect" },
+  { id: "how-we-use", title: "3. How We Use Your Information" },
+  { id: "how-we-share", title: "4. How We Share Your Information" },
+  { id: "data-security", title: "5. Data Security" },
+  { id: "data-retention", title: "6. Data Retention & Deletion" },
+  { id: "childrens-privacy", title: "7. Children's Privacy" },
+  { id: "policy-changes", title: "8. Changes to This Privacy Policy" },
+  { id: "contact-us", title: "9. Contact Us" },
+];
+---
+
+<Layout 
+  title="Privacy Policy — HeyMom & Yorik Labs Apps" 
+  description="Privacy Policy for HeyMom and Yorik Labs mobile applications explaining how we collect, use, and safeguard your data."
+>
+  <div class="pt-28 pb-24 relative bg-yorik-bg overflow-hidden">
+    <!-- Ambient glows -->
+    <div class="absolute top-20 left-1/4 w-[500px] h-[500px] bg-yorik-purple/10 blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-yorik-cyan/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Section Header -->
+      <SectionHeader
+        eyebrow="LEGAL & TRANSPARENCY"
+        headline="Privacy Policy for HeyMom"
+        copy="We take your privacy and sensitive health data seriously. This Privacy Policy outlines how your information is handled, secured, and protected across HeyMom and Yorik Labs applications."
+        gradientText="Privacy Policy for HeyMom"
+      />
+
+      <!-- App & Meta Banner -->
+      <div class="mt-8 p-6 rounded-2xl glass-panel border border-yorik-purple/40 bg-gradient-to-r from-yorik-surface-elevated/80 via-yorik-surface/80 to-yorik-bg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-yorik-purple/20 text-yorik-purple-glow border border-yorik-purple/40">
+              Application: HeyMom
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-yorik-surface text-yorik-cyan border border-yorik-border">
+              Developer: Yorik Labs
+            </span>
+          </div>
+          <p class="text-xs font-mono text-yorik-subtle">
+            Effective Date: <strong class="text-white">{effectiveDate}</strong>
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3 text-xs font-mono text-yorik-muted">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-yorik-green animate-pulse"></span>
+            Zero Data Sales
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-yorik-cyan"></span>
+            Health Encryption
+          </span>
+        </div>
+      </div>
+
+      <!-- Main Layout: Sidebar & Content -->
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Table of Contents Sticky Sidebar -->
+        <aside class="lg:col-span-4 hidden lg:block">
+          <div class="sticky top-28 glass-panel p-6 rounded-2xl border border-yorik-border/80 bg-yorik-surface/40">
+            <h3 class="font-mono text-xs font-bold text-white uppercase tracking-widest mb-4">Table of Contents</h3>
+            <nav class="space-y-2">
+              {sections.map((sec) => (
+                <a
+                  href={`#${sec.id}`}
+                  class="block text-xs font-mono text-yorik-muted hover:text-yorik-cyan hover:translate-x-1 transition-all py-1 border-l-2 border-transparent hover:border-yorik-cyan pl-2"
+                >
+                  {sec.title}
+                </a>
+              ))}
+            </nav>
+            <div class="mt-6 pt-4 border-t border-yorik-border/60">
+              <p class="text-[11px] text-yorik-subtle font-mono leading-relaxed">
+                Questions about your health data? Email <a href={`mailto:${contactEmail}`} class="text-yorik-cyan underline">{contactEmail}</a>
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Document Body -->
+        <main class="lg:col-span-8 space-y-10">
+          
+          <!-- Section 1 -->
+          <article id="introduction" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">01.</span> Introduction
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              Welcome to <strong>HeyMom</strong> ("we," "our," or "us"), developed by <strong>Yorik Labs</strong>. We are deeply committed to protecting your privacy, especially regarding the sensitive personal and health information you share with us during your pregnancy journey.
+            </p>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. By using HeyMom, you agree to the practices described in this policy.
+            </p>
+          </article>
+
+          <!-- Section 2 -->
+          <article id="information-collected" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">02.</span> Information We Collect
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              To provide you with a personalized, reliable pregnancy tracking experience, we may collect the following types of information:
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="p-4 rounded-xl bg-yorik-surface/80 border border-yorik-border/80">
+                <h3 class="font-bold text-white text-sm mb-1">A. Personal Information</h3>
+                <p class="text-xs text-yorik-muted leading-relaxed">
+                  Name, email address, or account credentials when you register or sign into the app.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-yorik-surface/80 border border-yorik-purple/30">
+                <h3 class="font-bold text-yorik-purple-glow text-sm mb-1">B. Health and Sensitive Data</h3>
+                <p class="text-xs text-yorik-muted leading-relaxed mb-2">
+                  Due date, menstrual cycle dates, pregnancy symptoms, weight tracking, medical appointments, ultrasound images, and any other personal health notes you voluntarily input into the app.
+                </p>
+                <div class="px-3 py-1.5 rounded-lg bg-yorik-purple/10 border border-yorik-purple/20 text-[11px] font-mono text-yorik-purple-glow">
+                  🛡️ Health data is encrypted and handled with strict privacy protocols.
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-yorik-surface/80 border border-yorik-border/80">
+                <h3 class="font-bold text-white text-sm mb-1">C. Device and Usage Data</h3>
+                <p class="text-xs text-yorik-muted leading-relaxed">
+                  Information about your mobile device (e.g., device model, operating system version), IP address, and technical interaction logs (e.g., features used, session timestamps) to improve app performance.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 3 -->
+          <article id="how-we-use" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">03.</span> How We Use Your Information
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              We use the information we collect primarily to operate, maintain, and enhance the app. Specifically, we use your data to:
+            </p>
+            <ul class="space-y-2 text-sm text-yorik-muted list-disc list-inside leading-relaxed pl-2">
+              <li>Calculate pregnancy milestones and provide tailored daily/weekly fetal developmental updates.</li>
+              <li>Allow you to log, monitor, and visualize personal health metrics, symptoms, and appointment reminders.</li>
+              <li>Securely back up your data and restore it across devices (if you create an account).</li>
+              <li>Respond promptly to your customer support requests or feedback.</li>
+              <li>Analyze general usage patterns to improve app stability, speed, and usability.</li>
+            </ul>
+          </article>
+
+          <!-- Section 4 -->
+          <article id="how-we-share" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">04.</span> How We Share Your Information
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              We take the privacy of your health data extremely seriously. <strong>We do NOT sell your personal or health data to third parties, advertisers, or data brokers under any circumstances.</strong>
+            </p>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              We may share your information only in the following limited circumstances:
+            </p>
+            <div class="space-y-3 pt-2">
+              <div class="p-4 rounded-xl bg-yorik-surface/60 border border-yorik-border">
+                <h3 class="font-bold text-white text-sm">Service Providers</h3>
+                <p class="text-xs text-yorik-muted leading-relaxed mt-1">
+                  With trusted third-party infrastructure providers who assist us in operating the app (e.g., secure cloud hosting like Google Cloud or AWS, privacy-focused analytics). These providers are contractually obligated to keep your data confidential and use it strictly for the services they perform for us.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-yorik-surface/60 border border-yorik-border">
+                <h3 class="font-bold text-white text-sm">Legal Requirements</h3>
+                <p class="text-xs text-yorik-muted leading-relaxed mt-1">
+                  If required by law, court order, subpoena, or government regulation, or when necessary to protect the safety, rights, or property of our users, Yorik Labs, or the public.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Section 5 -->
+          <article id="data-security" class="glass-panel p-8 rounded-3xl border border-yorik-purple/30 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">05.</span> Data Security
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              We implement industry-standard administrative, technical, and physical security measures to protect your sensitive health data against unauthorized access, alteration, disclosure, or destruction.
+            </p>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              This includes end-to-end HTTPS encryption of data in transit (TLS/SSL) and secure storage encryption at rest. While we adhere to strict standards, please note that no transmission method over the internet or electronic storage is 100% secure.
+            </p>
+          </article>
+
+          <!-- Section 6 -->
+          <article id="data-retention" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">06.</span> Data Retention and Deletion
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              We retain your personal and health data only for as long as your account remains active or as needed to provide you with the app's services.
+            </p>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              <strong>Your Right to Delete:</strong> You can request to delete your account and all associated health records at any time directly through the app settings or by contacting us at <a href={`mailto:${contactEmail}`} class="text-yorik-cyan underline font-mono">{contactEmail}</a>. Upon receiving your deletion request, your data will be permanently purged from our active servers.
+            </p>
+          </article>
+
+          <!-- Section 7 -->
+          <article id="childrens-privacy" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">07.</span> Children's Privacy
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              HeyMom is designed for expecting parents and is not intended for use by children under the age of 13 (or the applicable legal age in your jurisdiction). We do not knowingly collect or solicit personal information from children. If we learn that we have collected personal data from a child, we will take prompt steps to delete that information.
+            </p>
+          </article>
+
+          <!-- Section 8 -->
+          <article id="policy-changes" class="glass-panel p-8 rounded-3xl border border-yorik-border/60 bg-yorik-surface/30 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">08.</span> Changes to This Privacy Policy
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              We may update this Privacy Policy periodically to reflect app updates, security improvements, or regulatory changes. We will notify you of any material changes by posting the updated Privacy Policy within the app and updating the "Effective Date" at the top of this page.
+            </p>
+          </article>
+
+          <!-- Section 9 -->
+          <article id="contact-us" class="glass-panel p-8 rounded-3xl border border-yorik-purple/50 bg-gradient-to-br from-yorik-surface-elevated to-yorik-surface space-y-4 shadow-xl">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <span class="text-yorik-purple font-mono">09.</span> Contact Us
+            </h2>
+            <p class="text-yorik-muted text-base leading-relaxed">
+              If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal and health data, please feel free to reach out to us:
+            </p>
+
+            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-yorik-bg/80 border border-yorik-border flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-yorik-purple/20 border border-yorik-purple/40 flex items-center justify-center text-yorik-purple-glow font-mono font-bold">
+                  ✉️
+                </div>
+                <div>
+                  <div class="text-xs font-mono text-yorik-subtle uppercase">Support Email</div>
+                  <a href={`mailto:${contactEmail}`} class="text-sm font-mono font-bold text-yorik-cyan hover:underline">
+                    {contactEmail}
+                  </a>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-yorik-bg/80 border border-yorik-border flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-yorik-cyan/20 border border-yorik-cyan/40 flex items-center justify-center text-yorik-cyan font-mono font-bold">
+                  🌐
+                </div>
+                <div>
+                  <div class="text-xs font-mono text-yorik-subtle uppercase">Official Website</div>
+                  <a href={websiteUrl} target="_blank" rel="noopener noreferrer" class="text-sm font-mono font-bold text-white hover:text-yorik-cyan hover:underline">
+                    yoriklabs.netlify.app
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/common/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const categories = await getCollection('categories');
+---
+
+<Layout title="Categories — Yorik Labs Ecosystem" description="Explore Yorik Labs utility app categories built around the different needs of everyday life.">
+  <div class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <SectionHeader
+      eyebrow="ECOSYSTEM CATEGORIES"
+      headline="Built around the way you live."
+      copy="Yorik Labs organizes utility tools into focused categories. Discover tools built for students, graduates, families, kids, individuals, and professionals."
+      gradientText="the way you live."
+    />
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {categories.map((cat) => (
+        <div class="glass-panel glass-panel-hover p-8 rounded-3xl border border-yorik-border flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-yorik-purple/15 text-yorik-purple-glow border border-yorik-purple/30">
+                {cat.data.name}
+              </span>
+              <span class="text-[10px] font-mono text-yorik-subtle">Category</span>
+            </div>
+
+            <h2 class="font-extrabold text-2xl text-white mb-3 group-hover:text-yorik-purple-glow transition-colors">
+              {cat.data.name}
+            </h2>
+            <p class="text-sm text-yorik-muted leading-relaxed mb-6">
+              {cat.data.description}
+            </p>
+
+            <div class="space-y-2 mb-6">
+              <span class="text-[11px] font-mono text-yorik-subtle uppercase tracking-wider block">Target Applications:</span>
+              <div class="flex flex-wrap gap-2">
+                {cat.data.exampleApps.map((app) => (
+                  <span class="px-2.5 py-1 rounded-lg bg-yorik-bg border border-yorik-border text-xs text-yorik-muted">
+                    {app}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-yorik-border/60 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-yorik-subtle">Currently Developing</span>
+            <a
+              href={`/categories/${cat.slug}`}
+              class="inline-flex items-center gap-1 text-sm font-semibold text-yorik-purple-glow hover:text-white transition-colors"
+            >
+              <span>Explore Category</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</Layout>

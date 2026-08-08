@@ -1,0 +1,85 @@
+---
+import SectionHeader from '../common/SectionHeader.astro';
+
+const platformNodes = [
+  {
+    name: 'Android Applications',
+    status: 'Initial Focus',
+    statusVariant: 'active',
+    desc: 'The initial launch platform for Yorik Labs focused utility applications.',
+  },
+  {
+    name: 'More Apps Expansion',
+    status: 'In Development',
+    statusVariant: 'progress',
+    desc: 'Expanding app breadth across academic research, document utilities, and family tools.',
+  },
+  {
+    name: 'More Categories',
+    status: 'Planned',
+    statusVariant: 'progress',
+    desc: 'Introducing dedicated tools for personal planning, health tracking, and professional utilities.',
+  },
+  {
+    name: 'More Platforms',
+    status: 'Future Vision',
+    statusVariant: 'future',
+    desc: 'Expanding across web and desktop ecosystems as user needs evolve.',
+  },
+  {
+    name: 'Growing Ecosystem',
+    status: 'Exploring',
+    statusVariant: 'explore',
+    desc: 'Cross-device multi-utility integration and seamless privacy-first sync.',
+  },
+];
+---
+
+<section class="py-24 relative bg-yorik-surface/30 border-b border-yorik-border/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <SectionHeader
+      eyebrow="BUILT FOR TODAY. READY FOR TOMORROW."
+      headline="Mobile first. Build beyond."
+      copy="Yorik Labs is focusing on mobile utility applications. As the ecosystem grows, the vision is to expand across additional platforms and app marketplaces."
+      gradientText="Build beyond."
+    />
+
+    <!-- Platform Sequence Matrix -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      {platformNodes.map((node) => {
+        const isCurrent = node.statusVariant === 'active';
+        
+        return (
+          <div class={`glass-panel p-6 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
+            isCurrent
+              ? 'border-yorik-purple/80 bg-yorik-surface-elevated shadow-glow'
+              : 'border-yorik-border opacity-85 hover:opacity-100 hover:border-yorik-purple/30'
+          }`}>
+            
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold border ${
+                  isCurrent
+                    ? 'bg-yorik-purple/20 text-yorik-purple-glow border-yorik-purple/40 shadow-sm'
+                    : 'bg-yorik-surface text-yorik-subtle border-yorik-border'
+                }`}>
+                  {node.status}
+                </span>
+              </div>
+
+              <h3 class="font-extrabold text-lg text-white mb-2">{node.name}</h3>
+              <p class="text-xs text-yorik-muted leading-relaxed mb-4">{node.desc}</p>
+            </div>
+
+            <div class="pt-3 border-t border-yorik-border/50 text-[10px] font-mono text-yorik-subtle">
+              <span>Stage: <strong class="text-yorik-cyan">{node.status}</strong></span>
+            </div>
+
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

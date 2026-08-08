@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/common/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const apps = await getCollection('apps');
+---
+
+<Layout title="Product Concepts — Yorik Labs Ecosystem" description="Explore the growing list of focused utility app concepts being built by Yorik Labs.">
+  <div class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <SectionHeader
+      eyebrow="PRODUCT CONCEPTS"
+      headline="Focused tools. Real solutions."
+      copy="Browse the upcoming utility app concepts currently being developed for the Yorik Labs ecosystem. Each app is designed around a single, specific problem."
+      gradientText="Real solutions."
+    />
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {apps.map((app) => (
+        <div class="glass-panel glass-panel-hover p-8 rounded-3xl border border-yorik-border flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold text-yorik-cyan bg-yorik-cyan/10 border border-yorik-cyan/30">
+                {app.data.status}
+              </span>
+              <span class="text-[10px] font-mono text-yorik-subtle uppercase">
+                {app.data.category}
+              </span>
+            </div>
+
+            <h2 class="font-extrabold text-2xl text-white mb-2 group-hover:text-yorik-purple-glow transition-colors">
+              {app.data.name}
+            </h2>
+            <p class="text-xs text-yorik-muted leading-relaxed mb-6">
+              {app.data.tagline}
+            </p>
+
+            <div class="space-y-2 mb-6">
+              <span class="text-[10px] font-mono text-yorik-subtle uppercase tracking-wider block">Planned Capabilities:</span>
+              <ul class="space-y-1.5 text-xs text-yorik-muted">
+                {app.data.features.slice(0, 3).map((feat) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yorik-purple"></span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-yorik-border/60 flex items-center justify-between">
+            <span class="text-[11px] font-mono text-yorik-subtle">
+              Starting with {app.data.platforms.join(', ')}
+            </span>
+            <a
+              href={`/products/${app.slug}`}
+              class="inline-flex items-center gap-1 text-sm font-semibold text-yorik-purple-glow hover:text-white transition-colors"
+            >
+              <span>Read Concept</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</Layout>

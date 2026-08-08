@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/hero/Hero.astro';
+import BigIdea from '../components/sections/BigIdea.astro';
+import ExploreByNeed from '../components/sections/ExploreByNeed.astro';
+import EcosystemArchitecture from '../components/sections/EcosystemArchitecture';
+import CuratedCollections from '../components/sections/CuratedCollections';
+import MergedStoryGrowth from '../components/sections/MergedStoryGrowth.astro';
+import JourneyPlatform from '../components/sections/JourneyPlatform.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import SectionHeader from '../components/common/SectionHeader.astro';
+---
+
+<Layout title="Yorik Labs — An ecosystem of apps, built for real life.">
+  
+  <!-- SECTION 1 — HERO -->
+  <Hero />
+
+  <!-- SECTION 2 — DIFFERENT NEEDS. DIFFERENT APPS. -->
+  <BigIdea />
+
+  <!-- SECTION 3 — EXPLORE BY NEED -->
+  <ExploreByNeed />
+
+  <!-- SECTION 4 — SMALL APPS. REAL PROBLEMS. -->
+  <section id="ecosystem" class="py-24 relative bg-yorik-bg border-b border-yorik-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="THE ECOSYSTEM"
+        headline="Small apps. Real problems."
+        copy="We build focused apps for specific problems — then bring related apps together into a larger ecosystem."
+        gradientText="Small apps. Real problems."
+      />
+
+      <div class="mt-16">
+        <EcosystemArchitecture client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — COLLECTIONS -->
+  <section id="collections" class="py-24 relative bg-yorik-surface/30 border-b border-yorik-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="CURATED COLLECTIONS"
+        headline="Choose what fits your needs."
+        copy="As the ecosystem grows, related apps can come together into collections designed around specific needs and interests."
+        gradientText="fits your needs."
+      />
+
+      <div class="mt-16">
+        <CuratedCollections client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — ONE DEVELOPER. ONE BIG IDEA. -->
+  <MergedStoryGrowth />
+
+  <!-- SECTION 7 — START WITH ANDROID. BUILD BEYOND. -->
+  <JourneyPlatform />
+
+  <!-- SECTION 8 — SOMETHING USEFUL IS BEING BUILT. -->
+  <FinalCTA />
+
+</Layout>

@@ -1,0 +1,73 @@
+---
+import SectionHeader from '../common/SectionHeader.astro';
+
+const pipelineStages = [
+  { step: '01', title: 'Real Problem', desc: 'Identify a specific friction or unserved need in everyday life.' },
+  { step: '02', title: 'Idea', desc: 'Formulate a focused, intelligent software solution.' },
+  { step: '03', title: 'Focused App', desc: 'Build a lightweight, purpose-built utility application.' },
+  { step: '04', title: 'Useful Product', desc: 'Refine and optimize for privacy, performance, and real utility.' },
+  { step: '05', title: 'Collection', desc: 'Group related utilities together into curated suites.' },
+  { step: '06', title: 'Ecosystem', desc: 'Integrate tools into one growing, multi-category platform.' },
+];
+---
+
+<section class="py-24 relative bg-yorik-bg border-b border-yorik-border/50 overflow-hidden">
+  <!-- Ambient glow -->
+  <div class="absolute top-1/2 left-0 w-96 h-96 bg-yorik-purple/10 blur-[160px] pointer-events-none rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+    
+    <!-- Section Header -->
+    <SectionHeader
+      eyebrow="BUILT BY ONE. DRIVEN BY PURPOSE."
+      headline="One developer. One big idea."
+      copy="Yorik Labs started as a solo journey to build useful technology around real-world problems. The ecosystem starts small — one product, one problem and one idea at a time."
+      gradientText="One big idea."
+    />
+
+    <!-- Single Compact Process Visual -->
+    <div class="p-8 sm:p-12 rounded-3xl glass-panel border border-yorik-purple/40 relative overflow-hidden space-y-8">
+      
+      <div class="flex items-center justify-between flex-wrap gap-4 border-b border-yorik-border/60 pb-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl overflow-hidden bg-yorik-bg border border-yorik-purple/50 flex items-center justify-center p-1 shadow-glow">
+            <img src="/logo.png" alt="Yorik Labs Brand Icon" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <h3 class="font-extrabold text-xl text-white">How Yorik Labs Grows</h3>
+            <span class="text-xs font-mono text-yorik-cyan">Problem &rarr; Idea &rarr; App &rarr; Collection &rarr; Ecosystem</span>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-yorik-purple/15 border border-yorik-purple/30 text-xs font-mono text-yorik-purple-glow">
+          Independent Agile Development
+        </span>
+      </div>
+
+      <!-- Compact 6-Stage Process Pipeline -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 relative">
+        {pipelineStages.map((stage, idx) => (
+          <div class="glass-panel p-5 rounded-2xl border border-yorik-border/80 hover:border-yorik-purple/50 transition-all flex flex-col justify-between space-y-3 relative group">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-extrabold text-yorik-cyan">{stage.step}</span>
+              {idx < pipelineStages.length - 1 && (
+                <span class="hidden lg:block text-yorik-purple/40 group-hover:text-yorik-purple-glow transition-colors">&rarr;</span>
+              )}
+            </div>
+            <div>
+              <h4 class="font-bold text-sm text-white mb-1">{stage.title}</h4>
+              <p class="text-[11px] text-yorik-muted leading-tight">{stage.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Closing summary text -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-yorik-subtle border-t border-yorik-border/40">
+        <span>Built with clarity, speed, and long-term purpose.</span>
+        <a href="/about" class="text-yorik-purple-glow hover:underline font-semibold">Read the full founder story &rarr;</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>

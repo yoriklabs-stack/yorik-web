@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/common/SectionHeader.astro';
+
+const techPillars = [
+  {
+    title: 'Static-First Engine',
+    desc: 'Static site architecture ensures sub-second page loads, maximum Netlify CDN caching, and effortless scalability.',
+    badge: 'Performance',
+  },
+  {
+    title: 'Modular Content Collections',
+    desc: 'Powered by Astro Content Collections and MDX. Adding new apps requires creating a markdown file without altering UI code.',
+    badge: 'Architecture',
+  },
+  {
+    title: 'On-Device Privacy First',
+    desc: 'All initial Android applications process data locally on-device. Zero third-party tracking or ad telemetry.',
+    badge: 'Security',
+  },
+  {
+    title: 'Design Token System',
+    desc: 'Centralized Tailwind CSS design system configured for instant visual updates across borders, glows, and typography.',
+    badge: 'Design System',
+  },
+];
+---
+
+<Layout title="Technology Architecture — Yorik Labs" description="Technical design system, static-first engine, and modular content architecture of Yorik Labs.">
+  <div class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    
+    <SectionHeader
+      eyebrow="ENGINEERING PHILOSOPHY"
+      headline="Built for performance. Engineered to scale."
+      copy="Explore the technical foundations behind the Yorik Labs platform — static-first architecture, content collections, and local-first encryption."
+      gradientText="Engineered to scale."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {techPillars.map((pillar) => (
+        <div class="glass-panel p-8 rounded-3xl border border-yorik-border hover:border-yorik-purple/50 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold text-yorik-cyan bg-yorik-cyan/10 border border-yorik-cyan/30">
+              {pillar.badge}
+            </span>
+            <span class="text-xs font-mono text-yorik-subtle">Architecture</span>
+          </div>
+
+          <h2 class="font-extrabold text-2xl text-white mb-3">{pillar.title}</h2>
+          <p class="text-sm text-yorik-muted leading-relaxed">{pillar.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</Layout>

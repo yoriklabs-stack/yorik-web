@@ -1,0 +1,69 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-yorik-border bg-yorik-bg/90 pt-16 pb-12 relative overflow-hidden">
+  <!-- Subtle ambient background glow -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-yorik-purple/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-10 pb-12 border-b border-yorik-border/60">
+      
+      <!-- Brand column -->
+      <div class="md:col-span-2 space-y-4">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl overflow-hidden border border-yorik-purple/50 shadow-glow bg-yorik-bg flex items-center justify-center p-0.5">
+            <img src="/logo.png" alt="Yorik Labs Logo" class="w-full h-full object-contain" />
+          </div>
+          <span class="font-bold text-xl tracking-wider text-white">
+            YORIK<span class="text-yorik-purple font-mono font-light ml-1">LABS</span>
+          </span>
+        </a>
+        <p class="text-yorik-muted text-sm max-w-sm leading-relaxed">
+          An ecosystem of apps, built for real life. Building a growing collection of useful, intelligent apps for the different needs of everyday life.
+        </p>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div>
+        <h3 class="font-mono text-xs font-semibold text-white uppercase tracking-widest mb-4">Ecosystem</h3>
+        <ul class="space-y-2.5 text-sm text-yorik-muted">
+          <li><a href="/#ecosystem" class="hover:text-yorik-purple transition-colors">Overview</a></li>
+          <li><a href="/categories" class="hover:text-yorik-purple transition-colors">Categories</a></li>
+          <li><a href="/products" class="hover:text-yorik-purple transition-colors">Product Concepts</a></li>
+          <li><a href="/collections" class="hover:text-yorik-purple transition-colors">Curated Collections</a></li>
+        </ul>
+      </div>
+
+      <!-- Company & Innovation -->
+      <div>
+        <h3 class="font-mono text-xs font-semibold text-white uppercase tracking-widest mb-4">Innovation</h3>
+        <ul class="space-y-2.5 text-sm text-yorik-muted">
+          <li><a href="/labs" class="hover:text-yorik-purple transition-colors">Yorik Labs</a></li>
+          <li><a href="/technology" class="hover:text-yorik-purple transition-colors">Technology Architecture</a></li>
+          <li><a href="/roadmap" class="hover:text-yorik-purple transition-colors">Platform Journey</a></li>
+          <li><a href="/about" class="hover:text-yorik-purple transition-colors">Our Story</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact / Follow -->
+      <div>
+        <h3 class="font-mono text-xs font-semibold text-white uppercase tracking-widest mb-4">Connect</h3>
+        <ul class="space-y-2.5 text-sm text-yorik-muted">
+          <li><a href="/contact" class="hover:text-yorik-purple transition-colors">Follow the Journey</a></li>
+          <li><a href="/contact" class="hover:text-yorik-purple transition-colors">Get in Touch</a></li>
+          <li><a href="mailto:yorik.labs@gmail.com" class="hover:text-yorik-purple transition-colors font-mono text-xs text-yorik-cyan">yorik.labs@gmail.com</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Copyright & Disclaimer -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-yorik-subtle">
+      <p>© {currentYear} Yorik Labs. All rights reserved.</p>
+      <p class="text-center md:text-right text-yorik-subtle max-w-md">
+        The goal isn't to build one app for everyone. It's to build the right app for everyone.
+      </p>
+    </div>
+  </div>
+</footer>

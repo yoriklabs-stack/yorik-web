@@ -1,0 +1,29 @@
+---
+import SEO from '../components/common/SEO.astro';
+import Navbar from '../components/common/Navbar.astro';
+import Footer from '../components/common/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <SEO title={title} description={description} />
+  </head>
+  <body class="bg-yorik-bg text-yorik-text min-h-screen flex flex-col font-sans antialiased selection:bg-yorik-purple selection:text-white">
+    <Navbar />
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

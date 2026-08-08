@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/common/SectionHeader.astro';
+import CuratedCollections from '../../components/sections/CuratedCollections';
+---
+
+<Layout title="Curated Collections — Yorik Labs Ecosystem" description="Explore curated collections of focused utility applications designed around specific life stages and interests.">
+  <div class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <SectionHeader
+      eyebrow="CURATED FOR YOU"
+      headline="Collections that fit your needs."
+      copy="As the ecosystem grows, apps can be organized into curated collections for different needs, interests and stages of life."
+      gradientText="fit your needs."
+    />
+
+    <div class="mt-16">
+      <CuratedCollections client:load />
+    </div>
+
+  </div>
+</Layout>

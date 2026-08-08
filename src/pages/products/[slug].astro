@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const apps = await getCollection('apps');
+  return apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+interface Props {
+  app: CollectionEntry<'apps'>;
+}
+
+const { app } = Astro.props;
+const { Content } = await app.render();
+---
+
+<Layout title={`${app.data.name} — Yorik Labs Product Concept`} description={app.data.description}>
+  <div class="pt-36 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Top back navigation -->
+    <a href="/products" class="inline-flex items-center gap-2 text-xs font-mono text-yorik-subtle hover:text-white transition-colors">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      <span>← Back to All Product Concepts</span>
+    </a>
+
+    <!-- Header Card -->
+    <div class="p-8 sm:p-12 rounded-3xl glass-panel border border-yorik-purple/40 space-y-6 relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-8 opacity-10 font-mono text-6xl text-yorik-purple font-black">
+        YL
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold text-yorik-cyan bg-yorik-cyan/15 border border-yorik-cyan/30">
+          {app.data.status}
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono text-yorik-subtle bg-yorik-surface border border-yorik-border">
+          Category: {app.data.category}
+        </span>
+        {app.data.badge && (
+          <span class="px-3 py-1 rounded-full text-xs font-mono text-yorik-purple-glow bg-yorik-purple/10 border border-yorik-purple/30">
+            {app.data.badge}
+          </span>
+        )}
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        {app.data.name}
+      </h1>
+
+      <p class="text-lg text-yorik-purple-glow font-medium">
+        "{app.data.tagline}"
+      </p>
+
+      <p class="text-base text-yorik-muted leading-relaxed">
+        {app.data.description}
+      </p>
+
+      <div class="pt-6 border-t border-yorik-border/60 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-yorik-subtle">
+        <span>Target Platform: <strong class="text-white">{app.data.platforms.join(', ')}</strong></span>
+        <span>Ecosystem Stage: <strong class="text-yorik-cyan">Currently Developing</strong></span>
+      </div>
+    </div>
+
+    <!-- Planned Features -->
+    <div class="space-y-4">
+      <h2 class="text-xl font-bold text-white tracking-wide">Planned Capabilities</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {app.data.features.map((feature) => (
+          <div class="p-4 rounded-xl bg-yorik-surface border border-yorik-border/80 flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-yorik-purple mt-1.5 shrink-0"></span>
+            <span class="text-sm text-yorik-muted leading-relaxed">{feature}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- MDX Article Body -->
+    <div class="prose prose-invert max-w-none prose-p:text-yorik-muted prose-headings:text-white p-8 rounded-2xl bg-yorik-surface/40 border border-yorik-border">
+      <Content />
+    </div>
+
+    <!-- Footer Notice -->
+    <div class="p-6 rounded-2xl bg-yorik-surface border border-yorik-purple/30 text-center space-y-2">
+      <span class="font-mono text-xs text-yorik-cyan uppercase tracking-widest block">Future Ecosystem Note</span>
+      <p class="text-xs text-yorik-subtle max-w-lg mx-auto">
+        This app concept is part of the future Yorik Labs utility ecosystem. It is not currently published on app stores. Follow Yorik Labs to track development updates.
+      </p>
+    </div>
+
+  </div>
+</Layout>

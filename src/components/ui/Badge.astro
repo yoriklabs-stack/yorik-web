@@ -1,0 +1,34 @@
+---
+export interface Props {
+  text: string;
+  variant?: 'purple' | 'cyan' | 'blue' | 'pink' | 'orange' | 'green' | 'subtle';
+  pulse?: boolean;
+}
+
+const { text, variant = 'purple', pulse = false } = Astro.props;
+
+const styles = {
+  purple: 'bg-yorik-purple/10 text-yorik-purple-glow border-yorik-purple/30',
+  cyan: 'bg-yorik-cyan/10 text-yorik-cyan border-yorik-cyan/30',
+  blue: 'bg-yorik-blue/10 text-yorik-blue-glow border-yorik-blue/30',
+  pink: 'bg-yorik-pink/10 text-yorik-pink border-yorik-pink/30',
+  orange: 'bg-yorik-orange/10 text-yorik-orange border-yorik-orange/30',
+  green: 'bg-yorik-green/10 text-yorik-green border-yorik-green/30',
+  subtle: 'bg-yorik-surface text-yorik-muted border-yorik-border',
+};
+
+const pulseColors = {
+  purple: 'bg-yorik-purple',
+  cyan: 'bg-yorik-cyan',
+  blue: 'bg-yorik-blue',
+  pink: 'bg-yorik-pink',
+  orange: 'bg-yorik-orange',
+  green: 'bg-yorik-green',
+  subtle: 'bg-yorik-muted',
+};
+---
+
+<span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border ${styles[variant]}`}>
+  {pulse && <span class={`w-1.5 h-1.5 rounded-full animate-pulse ${pulseColors[variant]}`}></span>}
+  <span>{text}</span>
+</span>

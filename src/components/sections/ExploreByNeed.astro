@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeader from '../common/SectionHeader.astro';
+
+const categories = await getCollection('categories');
+
+const colorStyles: Record<string, { badge: string; glow: string; border: string }> = {
+  purple: {
+    badge: 'bg-yorik-purple/15 text-yorik-purple-glow border-yorik-purple/30',
+    glow: 'from-yorik-purple/20',
+    border: 'hover:border-yorik-purple/50',
+  },
+  blue: {
+    badge: 'bg-yorik-blue/15 text-yorik-blue-glow border-yorik-blue/30',
+    glow: 'from-yorik-blue/20',
+    border: 'hover:border-yorik-blue/50',
+  },
+  cyan: {
+    badge: 'bg-yorik-cyan/15 text-yorik-cyan border-yorik-cyan/30',
+    glow: 'from-yorik-cyan/20',
+    border: 'hover:border-yorik-cyan/50',
+  },
+  pink: {
+    badge: 'bg-yorik-pink/15 text-yorik-pink border-yorik-pink/30',
+    glow: 'from-yorik-pink/20',
+    border: 'hover:border-yorik-pink/50',
+  },
+  orange: {
+    badge: 'bg-yorik-orange/15 text-yorik-orange border-yorik-orange/30',
+    glow: 'from-yorik-orange/20',
+    border: 'hover:border-yorik-orange/50',
+  },
+  green: {
+    badge: 'bg-yorik-green/15 text-yorik-green border-yorik-green/30',
+    glow: 'from-yorik-green/20',
+    border: 'hover:border-yorik-green/50',
+  },
+};
+---
+
+<section id="needs" class="py-24 relative bg-yorik-surface/30 border-b border-yorik-border/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <SectionHeader
+      eyebrow="EXPLORE BY NEED"
+      headline="Find the tools that fit your needs."
+      copy="Different people need different tools. Explore the growing ecosystem by what matters to you."
+      gradientText="fit your needs."
+    />
+
+    <!-- Category Cards Grid -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {categories.map((cat) => {
+        const theme = colorStyles[cat.data.accentColor] || colorStyles.purple;
+        return (
+          <div class={`glass-panel p-8 rounded-3xl border border-yorik-border ${theme.border} transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between relative overflow-hidden group`}>
+            
+            <!-- Ambient Card Glow -->
+            <div class={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl ${theme.glow} to-transparent blur-3xl rounded-full pointer-events-none opacity-40 group-hover:opacity-70 transition-opacity`}></div>
+
+            <div>
+              <!-- Header -->
+              <div class="flex items-center justify-between mb-4">
+                <span class={`px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase border ${theme.badge}`}>
+                  {cat.data.name}
+                </span>
+                <span class="text-[10px] font-mono text-yorik-subtle">Planned</span>
+              </div>
+
+              <!-- Title & Description -->
+              <h3 class="font-extrabold text-2xl text-white mb-2 group-hover:text-yorik-purple-glow transition-colors">
+                {cat.data.name}
+              </h3>
+              <p class="text-xs sm:text-sm text-yorik-muted leading-relaxed mb-6 line-clamp-2">
+                {cat.data.description}
+              </p>
+
+              <!-- Example Apps Pills -->
+              <div class="space-y-2 mb-8">
+                <span class="text-[11px] font-mono text-yorik-subtle uppercase tracking-wider block">Example Apps:</span>
+                <div class="flex flex-wrap gap-1.5">
+                  {cat.data.exampleApps.slice(0, 4).map((app) => (
+                    <span class="px-2.5 py-1 rounded-lg bg-yorik-bg/90 border border-yorik-border/80 text-xs text-yorik-muted font-medium">
+                      {app}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div class="pt-6 border-t border-yorik-border/60 flex items-center justify-between">
+              <span class="text-[11px] font-mono text-yorik-cyan">
+                In Development
+              </span>
+              <a
+                href={`/categories/${cat.slug}`}
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-yorik-purple-glow hover:text-white transition-colors"
+              >
+                <span>Explore apps →</span>
+              </a>
+            </div>
+
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

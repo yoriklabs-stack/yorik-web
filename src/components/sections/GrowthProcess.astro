@@ -1,0 +1,97 @@
+---
+import SectionHeader from '../common/SectionHeader.astro';
+
+const steps = [
+  {
+    step: '01',
+    title: 'Real Problem',
+    desc: 'Understand something people genuinely need.',
+    badge: 'Discovery',
+  },
+  {
+    step: '02',
+    title: 'Idea',
+    desc: 'Find a simple and useful way to solve it.',
+    badge: 'Design',
+  },
+  {
+    step: '03',
+    title: 'Focused App',
+    desc: 'Build an application around that specific problem.',
+    badge: 'Build',
+  },
+  {
+    step: '04',
+    title: 'Useful Product',
+    desc: 'Refine it into a polished experience.',
+    badge: 'Refine',
+  },
+  {
+    step: '05',
+    title: 'Collection',
+    desc: 'Connect related apps around a common need.',
+    badge: 'Curate',
+  },
+  {
+    step: '06',
+    title: 'Ecosystem',
+    desc: 'Create a growing collection of useful technology.',
+    badge: 'Scale',
+  },
+];
+---
+
+<section class="py-24 relative bg-yorik-bg border-b border-yorik-border/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <SectionHeader
+      eyebrow="HOW YORIK LABS GROWS"
+      headline="From ideas to useful products."
+      copy="A systematic approach to identifying genuine human needs, crafting dedicated tools, and combining them into an expandable software ecosystem."
+      gradientText="ideas to useful products."
+    />
+
+    <!-- Process Pipeline Visualization -->
+    <div class="mt-16 relative">
+      <!-- Background Connecting Line for Desktop -->
+      <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-yorik-purple/20 via-yorik-cyan/40 to-yorik-purple/20 -translate-y-1/2 z-0"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative z-10">
+        {steps.map((item, idx) => (
+          <div class="glass-panel p-6 rounded-2xl border border-yorik-border hover:border-yorik-purple/50 transition-all group flex flex-col justify-between relative">
+            
+            <div>
+              <!-- Step indicator badge -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-2xl font-black text-yorik-purple-glow opacity-80 group-hover:opacity-100 transition-opacity">
+                  {item.step}
+                </span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-yorik-surface text-yorik-cyan border border-yorik-border">
+                  {item.badge}
+                </span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="font-extrabold text-lg text-white mb-2 group-hover:text-yorik-purple-glow transition-colors">
+                {item.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-xs text-yorik-muted leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+
+            <!-- Stage connector indicator -->
+            <div class="mt-6 pt-3 border-t border-yorik-border/40 flex items-center justify-between text-[10px] font-mono text-yorik-subtle">
+              <span>Stage {idx + 1} of 6</span>
+              <span class="text-yorik-purple font-bold">↓</span>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

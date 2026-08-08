@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/common/SectionHeader.astro';
+import EcosystemArchitecture from '../components/sections/EcosystemArchitecture';
+import BigIdea from '../components/sections/BigIdea.astro';
+---
+
+<Layout title="The Ecosystem — Yorik Labs" description="Learn how Yorik Labs builds modular, focused utility apps that unite into one growing ecosystem.">
+  <div class="pt-36 pb-24 space-y-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="THE ECOSYSTEM"
+        headline="One ecosystem. Many needs."
+        copy="Yorik Labs is designed from the ground up as a continuous software engine. Learn how our apps stand on their own while multiplying value as part of a larger ecosystem."
+        gradientText="Many needs."
+      />
+
+      <div class="mt-16">
+        <EcosystemArchitecture client:load />
+      </div>
+    </div>
+
+    <BigIdea />
+  </div>
+</Layout>

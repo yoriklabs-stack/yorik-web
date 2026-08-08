@@ -1,0 +1,95 @@
+---
+import SectionHeader from '../common/SectionHeader.astro';
+
+const exampleNeedCards = [
+  {
+    title: 'Student Needs',
+    category: 'Students',
+    desc: 'An AI researcher to analyze papers, a homework helper for assignments, or a PDF utility for offline scanning.',
+    icon: 'GraduationCap',
+    badgeColor: 'border-yorik-purple/40 bg-yorik-purple/10 text-yorik-purple-glow',
+    examples: ['AI Researcher', 'Homework Helper', 'PDF Utility'],
+  },
+  {
+    title: 'Graduate Needs',
+    category: 'Graduates',
+    desc: 'An AI resume builder to optimize bullet points and an interview trainer for mock voice coaching.',
+    icon: 'Briefcase',
+    badgeColor: 'border-yorik-blue/40 bg-yorik-blue/10 text-yorik-blue-glow',
+    examples: ['AI Resume Builder', 'AI Interview Trainer'],
+  },
+  {
+    title: 'Family Needs',
+    category: 'Families',
+    desc: 'A private pregnancy tracker, baby milestone journal, or household finance and organization tools.',
+    icon: 'Heart',
+    badgeColor: 'border-yorik-pink/40 bg-yorik-pink/10 text-yorik-pink',
+    examples: ['Pregnancy Tracker', 'Baby Journal', 'Household Finance'],
+  },
+];
+---
+
+<section class="py-24 relative overflow-hidden bg-yorik-bg border-b border-yorik-border/50">
+  <!-- Subtle ambient background glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-yorik-purple/10 blur-[140px] pointer-events-none rounded-full"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <SectionHeader
+      eyebrow="ONE ECOSYSTEM. MANY NEEDS."
+      headline="Different needs. Different apps. One ecosystem."
+      copy="People don't have one need. They have hundreds of them. Yorik Labs brings focused, purpose-built tools together into one growing ecosystem."
+      gradientText="One ecosystem."
+    />
+
+    <!-- 3 Core Need Example Cards -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {exampleNeedCards.map((card) => (
+        <div class="glass-panel p-8 rounded-3xl border border-yorik-border/80 hover:border-yorik-purple/40 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class={`px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase border ${card.badgeColor}`}>
+                {card.category}
+              </span>
+              <span class="text-[10px] font-mono text-yorik-subtle">In Development</span>
+            </div>
+
+            <h3 class="font-extrabold text-2xl text-white group-hover:text-yorik-purple-glow transition-colors">
+              {card.title}
+            </h3>
+
+            <p class="text-sm text-yorik-muted leading-relaxed">
+              {card.desc}
+            </p>
+
+            <div class="pt-3">
+              <span class="text-[11px] font-mono text-yorik-subtle uppercase tracking-wider block mb-2">Focused Tools:</span>
+              <div class="flex flex-wrap gap-1.5">
+                {card.examples.map((item) => (
+                  <span class="px-2.5 py-1 rounded-lg bg-yorik-surface border border-yorik-border text-xs text-white font-medium">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-yorik-border/50 text-[11px] font-mono text-yorik-cyan flex items-center justify-between">
+            <span>Purpose-Built Utility</span>
+            <span>Coming Soon</span>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Final concluding line -->
+    <div class="mt-12 text-center">
+      <p class="text-base sm:text-lg font-semibold text-white">
+        Yorik Labs brings these focused tools together.
+      </p>
+    </div>
+
+  </div>
+</section>

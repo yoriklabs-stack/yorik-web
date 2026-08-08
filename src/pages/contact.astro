@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/common/SectionHeader.astro';
+---
+
+<Layout title="Follow the Journey — Yorik Labs" description="Get in touch with Yorik Labs and follow the ecosystem development.">
+  <div class="pt-36 pb-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <SectionHeader
+      eyebrow="STAY CONNECTED"
+      headline="Follow the Yorik Labs journey."
+      copy="We are building an ecosystem of focused utility applications designed around real human needs. Connect with us directly at yorik.labs@gmail.com or send a message below."
+      gradientText="the Yorik Labs journey."
+    />
+
+    <div class="p-8 sm:p-12 rounded-3xl glass-panel border border-yorik-purple/40 space-y-8 relative overflow-hidden">
+      
+      <div class="space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-2xl font-bold text-white">Get in Touch</h2>
+          <a 
+            href="mailto:yorik.labs@gmail.com"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yorik-surface border border-yorik-cyan/40 text-xs font-mono text-yorik-cyan hover:border-yorik-cyan transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>yorik.labs@gmail.com</span>
+          </a>
+        </div>
+        <p class="text-sm text-yorik-muted leading-relaxed">
+          Yorik Labs is currently in active development. If you are interested in testing early Android utility builds, suggesting new app ideas, or contacting the developer, send your inquiry directly to <strong class="text-white">yorik.labs@gmail.com</strong> using the interactive form below.
+        </p>
+      </div>
+
+      <!-- Success Notification Box (Initially Hidden) -->
+      <div id="success-box" class="hidden p-6 rounded-2xl bg-yorik-surface-elevated border-2 border-yorik-green space-y-3">
+        <div class="flex items-center gap-3 text-yorik-green">
+          <svg class="w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <h3 class="font-extrabold text-lg text-white">Email Draft Prepared!</h3>
+        </div>
+        <p class="text-xs text-yorik-muted leading-relaxed">
+          Your mail application has been opened with your pre-filled inquiry addressed to <strong class="text-white">yorik.labs@gmail.com</strong>.
+        </p>
+        <div class="pt-2 flex items-center gap-3">
+          <a
+            id="mailto-fallback-link"
+            href="mailto:yorik.labs@gmail.com"
+            class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-yorik-green/20 border border-yorik-green hover:bg-yorik-green hover:text-black transition-colors"
+          >
+            Re-open Email App &rarr;
+          </a>
+          <button
+            id="reset-form-btn"
+            type="button"
+            class="px-4 py-2 rounded-xl text-xs font-semibold text-yorik-subtle hover:text-white bg-yorik-surface border border-yorik-border"
+          >
+            Send Another Message
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Form -->
+      <form id="contact-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="user-name" class="block text-xs font-mono text-yorik-subtle mb-1">Your Name</label>
+            <input 
+              id="user-name"
+              type="text" 
+              placeholder="e.g. Alex River" 
+              class="w-full px-4 py-3 rounded-xl bg-yorik-bg border border-yorik-border text-white text-sm focus:outline-none focus:border-yorik-purple"
+              required
+            />
+          </div>
+          <div>
+            <label for="user-email" class="block text-xs font-mono text-yorik-subtle mb-1">Your Email</label>
+            <input 
+              id="user-email"
+              type="email" 
+              placeholder="alex@example.com" 
+              class="w-full px-4 py-3 rounded-xl bg-yorik-bg border border-yorik-border text-white text-sm focus:outline-none focus:border-yorik-purple"
+              required
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="app-category" class="block text-xs font-mono text-yorik-subtle mb-1">App Category of Interest</label>
+          <select 
+            id="app-category"
+            class="w-full px-4 py-3 rounded-xl bg-yorik-bg border border-yorik-border text-white text-sm focus:outline-none focus:border-yorik-purple"
+          >
+            <option value="Students (AI Researcher, Homework Helper)">Students (AI Researcher, Homework Helper)</option>
+            <option value="Graduates (AI Resume, Interview Trainer)">Graduates (AI Resume, Interview Trainer)</option>
+            <option value="Families (Pregnancy, Baby Journal, Finance)">Families (Pregnancy, Baby Journal, Finance)</option>
+            <option value="Individuals (Expenses, Personal Planner)">Individuals (Expenses, Personal Planner)</option>
+            <option value="Professionals (PDF Utility, Document Tools)">Professionals (PDF Utility, Document Tools)</option>
+            <option value="General Inquiry / Feedback">General Inquiry / Feedback</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="user-message" class="block text-xs font-mono text-yorik-subtle mb-1">Message / Feedback</label>
+          <textarea 
+            id="user-message"
+            rows="4" 
+            placeholder="Share any specific utility apps, features, or questions you have for Yorik Labs..." 
+            class="w-full px-4 py-3 rounded-xl bg-yorik-bg border border-yorik-border text-white text-sm focus:outline-none focus:border-yorik-purple"
+            required
+          ></textarea>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button 
+            type="submit" 
+            class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-yorik-purple-dark via-yorik-purple to-yorik-cyan hover:from-yorik-purple hover:to-yorik-purple-glow shadow-glow transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+            </svg>
+            <span>Send Email to yorik.labs@gmail.com &rarr;</span>
+          </button>
+
+          <span class="text-xs font-mono text-yorik-subtle">
+            Recipient: <strong class="text-yorik-cyan">yorik.labs@gmail.com</strong>
+          </span>
+        </div>
+      </form>
+
+      <!-- Footer contact bar -->
+      <div class="pt-6 border-t border-yorik-border/60 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-yorik-subtle">
+        <span>Direct Email: <a href="mailto:yorik.labs@gmail.com" class="text-yorik-cyan font-bold hover:underline">yorik.labs@gmail.com</a></span>
+        <span>Initial Release: <strong class="text-yorik-purple-glow">Android Ecosystem</strong></span>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successBox = document.getElementById('success-box');
+  const fallbackLink = document.getElementById('mailto-fallback-link') as HTMLAnchorElement | null;
+  const resetBtn = document.getElementById('reset-form-btn');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nameInput = (document.getElementById('user-name') as HTMLInputElement)?.value.trim();
+    const emailInput = (document.getElementById('user-email') as HTMLInputElement)?.value.trim();
+    const categoryInput = (document.getElementById('app-category') as HTMLSelectElement)?.value;
+    const messageInput = (document.getElementById('user-message') as HTMLTextAreaElement)?.value.trim();
+
+    const recipient = 'yorik.labs@gmail.com';
+    const subject = encodeURIComponent(`Yorik Labs Inquiry: ${categoryInput} from ${nameInput}`);
+    const body = encodeURIComponent(
+      `Hello Yorik Labs Team,\n\n` +
+      `Name: ${nameInput}\n` +
+      `Email: ${emailInput}\n` +
+      `Category of Interest: ${categoryInput}\n\n` +
+      `Message / Feedback:\n${messageInput}\n\n` +
+      `---\nSent via Yorik Labs Website Contact Form`
+    );
+
+    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+    if (fallbackLink) {
+      fallbackLink.href = mailtoUrl;
+    }
+
+    // Trigger user's mail application
+    window.location.href = mailtoUrl;
+
+    // Show success confirmation box
+    if (successBox && form) {
+      form.classList.add('hidden');
+      successBox.classList.remove('hidden');
+    }
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    if (successBox && form) {
+      form.reset();
+      successBox.classList.add('hidden');
+      form.classList.remove('hidden');
+    }
+  });
+</script>

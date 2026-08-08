@@ -1,0 +1,81 @@
+---
+import OrbitalEcosystem from './OrbitalEcosystem';
+---
+
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-yorik-bg border-b border-yorik-border/40">
+  
+  <!-- Subtle Grid Background -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none"></div>
+
+  <!-- Radial Top Ambient Glow -->
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-yorik-purple/15 blur-[180px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Left Column: Copy & CTAs -->
+      <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+        
+        <!-- Eyebrow -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-yorik-surface border border-yorik-purple/40 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-yorik-purple animate-pulse"></span>
+            <span class="font-mono text-xs font-bold tracking-widest text-yorik-purple-glow uppercase">YORIK LABS</span>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+          An ecosystem of apps, <span class="text-gradient-purple">built for real life.</span>
+        </h1>
+
+        <!-- Supporting Copy -->
+        <p class="text-base sm:text-lg text-yorik-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
+          Yorik Labs is building a growing collection of useful, intelligent apps for the different needs of everyday life. Find what you need, when you need it.
+        </p>
+
+        <!-- Primary & Secondary CTAs -->
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a
+            href="#ecosystem"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-base font-bold text-white bg-gradient-to-r from-yorik-purple-dark to-yorik-purple hover:from-yorik-purple hover:to-yorik-purple-glow shadow-glow transition-all hover:scale-[1.02]"
+          >
+            <span>Explore the Ecosystem</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+
+          <a
+            href="/roadmap"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold text-yorik-muted hover:text-white bg-yorik-surface/80 border border-yorik-border hover:border-yorik-purple/40 transition-colors"
+          >
+            <span>Discover What's Being Built</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Micro Indicator -->
+        <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs text-yorik-subtle font-mono">
+          <span class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-yorik-green"></span>
+            Modular Utilities
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-yorik-cyan"></span>
+            Privacy-First
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Orbital Visual -->
+      <div class="lg:col-span-6 flex justify-center">
+        <OrbitalEcosystem client:load />
+      </div>
+
+    </div>
+  </div>
+</section>

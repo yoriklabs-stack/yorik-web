@@ -1,0 +1,64 @@
+---
+const visionItems = [
+  'More apps.',
+  'More categories.',
+  'More collections.',
+  'More platforms.',
+  'More useful experiences.',
+];
+---
+
+<section class="py-28 relative bg-yorik-bg overflow-hidden border-b border-yorik-border/50">
+  <!-- Dramatic ambient radial background -->
+  <div class="absolute inset-0 bg-radial-glow opacity-60 pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-yorik-purple/15 blur-[160px] pointer-events-none rounded-full"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-12">
+    
+    <!-- Headline -->
+    <div class="space-y-4">
+      <span class="font-mono text-xs font-bold tracking-widest text-yorik-cyan uppercase px-3.5 py-1 rounded-full bg-yorik-surface border border-yorik-cyan/30 inline-block">
+        FUTURE VISION
+      </span>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+        This is only <span class="text-gradient-purple">the beginning.</span>
+      </h2>
+    </div>
+
+    <!-- Animated List Pillars -->
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 max-w-3xl mx-auto">
+      {visionItems.map((item) => (
+        <div class="px-5 py-3 rounded-2xl glass-panel border border-yorik-purple/30 text-base sm:text-lg font-bold text-white shadow-glow hover:border-yorik-purple transition-all hover:scale-105">
+          <span class="text-yorik-purple-glow mr-2">✦</span>
+          {item}
+        </div>
+      ))}
+    </div>
+
+    <!-- Central Final Statement Box -->
+    <div class="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-b from-yorik-surface-elevated to-yorik-surface border-2 border-yorik-purple/50 shadow-2xl relative">
+      <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-0.5 rounded-full bg-yorik-purple text-[10px] font-mono font-bold tracking-widest text-white uppercase shadow-glow">
+        CORE BRAND MISSION
+      </div>
+
+      <p class="text-xl sm:text-2xl font-extrabold text-white leading-snug pt-2">
+        "The goal isn't to build one app for everyone.<br class="hidden sm:inline" />
+        <span class="text-gradient-cyan">It's to build the right app for everyone."</span>
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="pt-4">
+      <a
+        href="/about"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-yorik-purple-dark via-yorik-purple to-yorik-cyan hover:from-yorik-purple hover:to-yorik-purple-glow shadow-glow-strong transition-all hover:scale-105"
+      >
+        <span>Follow the Journey</span>
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
